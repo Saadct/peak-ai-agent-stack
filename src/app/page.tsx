@@ -1,4 +1,92 @@
+"use client";
+import { useState, useEffect } from 'react';
 import Image from "next/image";
+
+function TextRotator() {
+  const [index, setIndex] = useState(0);
+  const [isSliding, setIsSliding] = useState(false);
+
+  const messages = [
+    [
+      { text: "+10", color: "text-[#D4AF37]" },
+      { text: "entreprises", color: "text-[#D4AF37]" },
+      { text: "nous" }, { text: "ont" }, { text: "fait" }, { text: "confiance" },
+      { text: "pour" }, { text: "leurs" }, { text: "projets" }
+    ],
+    [
+      { text: "4", color: "text-[#D4AF37]" },
+      { text: "ans", color: "text-[#D4AF37]" },
+      { text: "d'expertise", color: "text-[#D4AF37]" },
+      { text: "au" }, { text: "service" }, { text: "de" }, { text: "vos" }, { text: "idées" }
+    ]
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsSliding(true);
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % messages.length);
+        setIsSliding(false);
+      }, 1000);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentMsg = messages[index];
+  const nextMsg = messages[(index + 1) % messages.length];
+  const maxLength = Math.max(currentMsg.length, nextMsg.length);
+
+  return (
+    <div className="flex items-center justify-center overflow-hidden h-6 gap-1.5">
+      {Array.from({ length: maxLength }).map((_, i) => {
+        const topWord = currentMsg[i];
+        const bottomWord = nextMsg[i];
+        return (
+          <div
+            key={i}
+            className={`flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${isSliding ? '-translate-y-6' : 'translate-y-0'}`}
+            style={{ transitionDelay: `${i * 30}ms` }}
+          >
+            <span className={`h-6 flex items-center leading-none text-sm text-gray-600 font-semibold whitespace-nowrap ${topWord?.color || ''}`}>
+              {topWord?.text || '\u00A0'}
+            </span>
+            <span className={`h-6 flex items-center leading-none text-sm text-gray-600 font-semibold whitespace-nowrap ${bottomWord?.color || ''}`}>
+              {bottomWord?.text || '\u00A0'}
+            </span>
+          </div>
+        )
+      })}
+    </div>
+  );
+}
+
+function SimpleTextRotator() {
+  const [index, setIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+
+  const messages = [
+    <span key="1"><span className="text-[#D4AF37] font-medium">+10 entreprises</span> nous ont fait confiance pour leurs projets</span>,
+    <span key="2">4 ans d'expertise au service de <span className="text-[#D4AF37] font-medium">vos idées</span></span>,
+    <span key="3">Des solutions <span className="text-[#D4AF37] font-medium">scalables</span>, pensées pour <span className="text-[#D4AF37] font-medium">durer</span></span>
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsVisible(false);
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % messages.length);
+        setIsVisible(true);
+      }, 1200);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className={`transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'} text-gray-600 font-medium text-sm h-6 flex items-center`}>
+      {messages[index]}
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -79,11 +167,11 @@ export default function Home() {
                 Lancez votre solution <span className="text-slate-900">SaaS</span> & <span className="text-slate-900">MVP</span> en jours, pas en mois
               </h1>
 
-              <p className="text-lg text-gray-500 mb-10 max-w-md mx-auto leading-relaxed">
+              <p className="text-base text-gray-500 mb-10 max-w-lg mx-auto leading-relaxed">
                 Design, développement et hébergement sécurisé en Europe, prêt à l’usage et à tester vos premiers utilisateurs
               </p>
 
-              <div className="flex flex-col gap-8 justify-center items-center mt-4">
+              <div className="flex flex-col gap-8 justify-center items-center mt-14">
                 <button className="group px-5 py-2 rounded-full bg-slate-900 text-white font-semibold text-sm hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20">
                   <div className="flex items-start justify-center overflow-hidden h-8 gap-1">
                     {["Lancez", "mon", "projet"].map((word, i) => (
@@ -103,19 +191,14 @@ export default function Home() {
                   </div>
                 </button>
 
-                <div className="flex flex-col items-center gap-3">
-                  <div className="flex -space-x-3">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-gray-100 flex items-center justify-center text-xs font-bold text-gray-600">
-                        {i === 5 ? '99+' : `U${i}`}
-                      </div>
-                    ))}
-                  </div>
+                <div className="mt-8 flex flex-col items-center gap-10">
+                  <SimpleTextRotator />
                   <div className="flex items-center gap-2">
-                    <div className="flex text-yellow-500 text-sm">★★★★★</div>
-                    <p className="text-sm text-gray-600">
-                      <span className="font-bold text-slate-900">4.9/5</span> par plus de 50 entreprises
-                    </p>
+                    <div className="bg-white px-3 py-1.5 rounded-xl shadow-md border border-gray-100 flex items-center gap-2">
+                      <svg className="w-4 h-4 text-black fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
+                      <span className="font-medium text-slate-900 text-sm drop-shadow-sm">4.9</span>
+                    </div>
+                    <span className="text-gray-500 font-normal text-sm drop-shadow-sm">5</span>
                   </div>
                 </div>
               </div>
@@ -125,6 +208,9 @@ export default function Home() {
           {/* Subtle Background Blob */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-3xl -z-10 pointer-events-none" />
         </section>
+
+        {/* Divider */}
+        <div className="w-[750px] mx-auto h-px bg-gradient-to-r from-transparent via-[#0A3A69] to-transparent opacity-30 my-20" />
 
         {/* SECTION 2: PROBLEM */}
         <section id="problem" className="py-24 bg-white">
