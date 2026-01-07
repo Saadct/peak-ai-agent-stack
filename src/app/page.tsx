@@ -109,49 +109,54 @@ export default function Home() {
 
   const projects = [
     {
-      title: "Peakfast",
-      description: "Peakfast est un service logistique qui facilite la vie des e-commerçants en leur permettant de scaler sereinement sans soucis de logistique. Notre mission ? Réaliser un design à la hauteur de leur promesse et créer une valeur perçue si grande qu'elle creuse un fossé incommensurable entre Peakfast et ses concurrents.",
-      tags: ["Design", "Landing page", "Full animations", "Offre Pulsor+", "Service de logistique"],
-      imageColor: "bg-slate-900",
-      logoColor: "bg-slate-900",
-      imageText: "Projet Peakfast",
-      borderColor: "border-slate-800"
+      title: "Votre SaaS en 30 jours. Pas en 6 mois.",
+      description: "Ne perdez plus des mois en développement. Nous livrons votre MVP ou SaaS complet en 4 semaines top chrono. Une exécution militaire pour un Go-to-Market immédiat, prêt à onboarder vos premiers clients payants.",
+      tags: ["Vélocité", "Go-to-market", "Sprint"],
+      imageColor: "bg-transparent",
+      imageText: "Rapidité",
+      borderColor: "border-transparent",
+      image: "/assets/peakfast-mockup-v4.png",
+      icon: <svg className="w-5 h-5 text-slate-900" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
     },
     {
-      title: "Kalyps",
-      description: "Une plateforme d'analytics nouvelle génération pour les créateurs de contenu. Kalyps agrège toutes vos données en un seul endroit pour une prise de décision éclairée et rapide.",
-      tags: ["SaaS", "Dashboard", "Analytics", "React", "Node.js"],
-      imageColor: "bg-indigo-600",
-      logoColor: "bg-indigo-600",
-      imageText: "Projet Kalyps",
-      borderColor: "border-indigo-500"
+      title: "Jamais bloqué techniquement.",
+      description: "Fini la solitude du fondateur face aux bugs. Une équipe dédiée vous accompagne au quotidien via un canal privé (Slack/WhatsApp). Une question technique ? Une réponse dans l'heure. Vous n'êtes plus jamais bloqué.",
+      tags: ["Accompagnement", "Slack dédié", "Réactivité"],
+      imageColor: "bg-transparent",
+      imageText: "Support",
+      borderColor: "border-transparent",
+      image: "/assets/kalyps-mockup-v3.png",
+      icon: <svg className="w-5 h-5 text-slate-900" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
     },
     {
-      title: "Mirakle",
-      description: "Mirakle révolutionne les créatives avec un style plus dynamique et authentique, conçu spécialement pour capter l'attention. Pour cette V2, notre objectif était clair : mettre en avant l'énergie et la créativité.",
-      tags: ["Landing page", "Offre Pulsor", "Agence"],
-      imageColor: "bg-blue-600",
-      logoColor: "bg-blue-600",
-      imageText: "Projet Mirakle",
-      borderColor: "border-blue-500"
+      title: "Vos données. Vos serveurs. Vos règles.",
+      description: "Vos données, vos règles. Choisissez l'emplacement physique de vos serveurs (France, Suisse, US...). Conformité RGPD native, sécurité bancaire et souveraineté totale sur votre infrastructure.",
+      tags: ["Souveraineté", "RGPD", "Sécurité"],
+      imageColor: "bg-transparent",
+      imageText: "Souveraineté",
+      borderColor: "border-transparent",
+      image: "/assets/mirakle-mockup.png",
+      icon: <svg className="w-5 h-5 text-slate-900" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
     },
     {
-      title: "Flowbase",
-      description: "Un outil de gestion de workflow nouvelle génération. Flowbase permet aux équipes de collaborer efficacement et d'automatiser leurs processus métier.",
-      tags: ["SaaS", "Workflow", "Automation", "B2B"],
-      imageColor: "bg-emerald-600",
-      logoColor: "bg-emerald-600",
-      imageText: "Projet Flowbase",
-      borderColor: "border-emerald-500"
+      title: "Un design pour convertir, pas pour décorer.",
+      description: "L'apparence n'est pas une option, c'est votre premier argument de vente. Nous créons des interfaces 'Pixel Perfect' qui inspirent une confiance immédiate et maximisent vos taux de conversion dès la première visite.",
+      tags: ["UI/UX Premium", "Conversion", "Image de marque"],
+      imageColor: "bg-transparent",
+      imageText: "Design",
+      borderColor: "border-transparent",
+      image: "/assets/nextera-mockup.png",
+      icon: <svg className="w-5 h-5 text-slate-900" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
     },
     {
-      title: "Nextera",
-      description: "Une solution e-commerce complète pour les marques ambitieuses. Nextera combine design premium et fonctionnalités avancées pour maximiser les conversions.",
-      tags: ["E-commerce", "Design", "Conversion", "Shopify"],
-      imageColor: "bg-orange-600",
-      logoColor: "bg-orange-600",
-      imageText: "Projet Nextera",
-      borderColor: "border-orange-500"
+      title: "Zéro dépendance. Le code est à vous.",
+      description: "Aucun 'Vendor Lock-in'. Vous êtes propriétaire de 100% du code source dès le premier jour. Vous êtes libre d'internaliser l'équipe, de changer de prestataire ou de revendre votre tech sans aucune friction.",
+      tags: ["Code Source", "Liberté", "No Lock-in"],
+      imageColor: "bg-transparent",
+      imageText: "Liberté",
+      borderColor: "border-transparent",
+      image: "/assets/flowbase-mockup.png",
+      icon: <svg className="w-5 h-5 text-slate-900" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" /></svg>
     }
   ];
 
@@ -280,29 +285,29 @@ export default function Home() {
 
             {/* --- Left Column --- */}
             {/* Top Left */}
-            <div className="absolute -top-16 left-12 hidden xl:block opacity-100 hover:opacity-90 transition-opacity duration-700 pointer-events-none select-none z-0">
+            <div className="absolute -top-16 left-12 hidden xl:block opacity-100 hover:opacity-90 transition-opacity duration-700 pointer-events-none select-none z-0" style={{ transform: 'perspective(600px) rotateY(25deg) rotateX(-8deg)' }}>
               <Image src="/assets/hero-design-1.png" alt="Design 1" width={0} height={0} sizes="100vw" style={{ width: '90px', height: 'auto' }} className="rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-gray-100/50" />
             </div>
             {/* Upper Mid Left */}
-            <div className="absolute top-[70%] left-56 hidden xl:block opacity-100 hover:opacity-50 transition-opacity duration-700 pointer-events-none select-none z-0">
+            <div className="absolute top-[70%] left-56 hidden xl:block opacity-100 hover:opacity-50 transition-opacity duration-700 pointer-events-none select-none z-0" style={{ transform: 'perspective(600px) rotateY(30deg) rotateX(5deg)' }}>
               <Image src="/assets/hero-design-6.png" alt="Design 6" width={0} height={0} sizes="100vw" style={{ width: '70px', height: 'auto' }} className="rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-gray-100/50" />
             </div>
             {/* Lower Mid Left */}
-            <div className="absolute bottom-72 left-28 hidden xl:block opacity-100 hover:opacity-80 transition-opacity duration-700 pointer-events-none select-none z-0">
+            <div className="absolute bottom-72 left-28 hidden xl:block opacity-100 hover:opacity-80 transition-opacity duration-700 pointer-events-none select-none z-0" style={{ transform: 'perspective(600px) rotateY(22deg) rotateX(-12deg)' }}>
               <Image src="/assets/hero-design-4.jpg" alt="Design 4" width={0} height={0} sizes="100vw" style={{ width: '80px', height: 'auto' }} className="rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-gray-100/50" />
             </div>
 
             {/* --- Right Column --- */}
             {/* Top Right */}
-            <div className="absolute -top-16 right-20 hidden xl:block opacity-100 hover:opacity-75 transition-opacity duration-700 pointer-events-none select-none z-0">
+            <div className="absolute -top-16 right-20 hidden xl:block opacity-100 hover:opacity-75 transition-opacity duration-700 pointer-events-none select-none z-0" style={{ transform: 'perspective(600px) rotateY(-25deg) rotateX(-8deg)' }}>
               <Image src="/assets/hero-design-3.png" alt="Design 3" width={0} height={0} sizes="100vw" style={{ width: '100px', height: 'auto' }} className="rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-gray-100/50" />
             </div>
             {/* Mid Right */}
-            <div className="absolute -bottom-16 right-56 hidden xl:block opacity-100 hover:opacity-80 transition-opacity duration-700 pointer-events-none select-none z-0">
+            <div className="absolute -bottom-16 right-56 hidden xl:block opacity-100 hover:opacity-80 transition-opacity duration-700 pointer-events-none select-none z-0" style={{ transform: 'perspective(600px) rotateY(-30deg) rotateX(5deg)' }}>
               <Image src="/assets/hero-design-5.png" alt="Design 5" width={0} height={0} sizes="100vw" style={{ width: '70px', height: 'auto' }} className="rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-gray-100/50" />
             </div>
             {/* Lower Mid Right */}
-            <div className="absolute top-[50%] -translate-y-1/2 right-36 hidden xl:block opacity-100 hover:opacity-70 transition-opacity duration-700 pointer-events-none select-none z-0">
+            <div className="absolute top-[50%] -translate-y-1/2 right-36 hidden xl:block opacity-100 hover:opacity-70 transition-opacity duration-700 pointer-events-none select-none z-0" style={{ transform: 'perspective(600px) rotateY(-22deg) rotateX(-12deg) translateY(-50%)' }}>
               <Image src="/assets/hero-design-2.png" alt="Design 2" width={0} height={0} sizes="100vw" style={{ width: '100px', height: 'auto' }} className="rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-gray-100/50" />
             </div>
 
@@ -402,24 +407,36 @@ export default function Home() {
                   >
 
                     {/* Previous Block (n-1) */}
-                    <div className={`h-[280px] w-full min-w-full lg:min-w-0 rounded-3xl flex items-center justify-center overflow-hidden shadow-lg border
+                    <div className={`h-[280px] w-full min-w-full lg:min-w-0 rounded-3xl flex items-center justify-center overflow-hidden shadow-lg border relative
                       ${currentProject > 0 ? `${projects[currentProject - 1].imageColor} ${projects[currentProject - 1].borderColor || ''}` : 'bg-transparent border-transparent shadow-none'}`}>
-                      <span className="text-gray-100 font-medium relative z-10 text-xl tracking-wide">
-                        {currentProject > 0 ? projects[currentProject - 1].imageText : ''}
-                      </span>
+                      {currentProject > 0 && projects[currentProject - 1].image ? (
+                        <Image src={projects[currentProject - 1].image} alt={projects[currentProject - 1].title} fill className="object-cover" />
+                      ) : (
+                        <span className="text-gray-100 font-medium relative z-10 text-xl tracking-wide">
+                          {currentProject > 0 ? projects[currentProject - 1].imageText : ''}
+                        </span>
+                      )}
                     </div>
 
                     {/* Main Image Block (current) */}
-                    <div className={`h-[280px] w-full min-w-full lg:min-w-0 rounded-3xl flex items-center justify-center overflow-hidden shadow-lg border ${projects[currentProject].imageColor} ${projects[currentProject].borderColor || ''}`}>
-                      <span className="text-gray-100 font-medium relative z-10 text-xl tracking-wide">{projects[currentProject].imageText}</span>
+                    <div className={`h-[280px] w-full min-w-full lg:min-w-0 rounded-3xl flex items-center justify-center overflow-hidden shadow-lg border ${projects[currentProject].imageColor} ${projects[currentProject].borderColor || ''} relative`}>
+                      {projects[currentProject].image ? (
+                        <Image src={projects[currentProject].image} alt={projects[currentProject].title} fill className="object-cover" />
+                      ) : (
+                        <span className="text-gray-100 font-medium relative z-10 text-xl tracking-wide">{projects[currentProject].imageText}</span>
+                      )}
                     </div>
 
                     {/* Next Block (n+1) */}
-                    <div className={`h-[280px] w-full min-w-full lg:min-w-0 rounded-3xl flex items-center justify-center overflow-hidden shadow-lg border
+                    <div className={`h-[280px] w-full min-w-full lg:min-w-0 rounded-3xl flex items-center justify-center overflow-hidden shadow-lg border relative
                       ${currentProject < projects.length - 1 ? `${projects[currentProject + 1].imageColor} ${projects[currentProject + 1].borderColor || ''}` : 'bg-transparent border-transparent shadow-none'}`}>
-                      <span className="text-gray-100 font-medium relative z-10 text-xl tracking-wide">
-                        {currentProject < projects.length - 1 ? projects[currentProject + 1].imageText : ''}
-                      </span>
+                      {currentProject < projects.length - 1 && projects[currentProject + 1].image ? (
+                        <Image src={projects[currentProject + 1].image} alt={projects[currentProject + 1].title} fill className="object-cover" />
+                      ) : (
+                        <span className="text-gray-100 font-medium relative z-10 text-xl tracking-wide">
+                          {currentProject < projects.length - 1 ? projects[currentProject + 1].imageText : ''}
+                        </span>
+                      )}
                     </div>
 
                   </div>
@@ -485,9 +502,9 @@ export default function Home() {
                 <div className={`flex items-center gap-4 mb-6 transition-all duration-400 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}
                   style={{ transitionDelay: isAnimating ? '0ms' : '200ms', transitionDuration: '400ms' }}>
                   <div className={`w-12 h-12 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center`}>
-                    <div className={`w-6 h-6 ${projects[currentProject].logoColor} rotate-45 rounded-sm`}></div>
+                    {projects[currentProject].icon}
                   </div>
-                  <h3 className="text-4xl font-bold text-slate-900 font-heading">{projects[currentProject].title}</h3>
+                  <h3 className="text-3xl font-bold text-slate-900 font-heading">{projects[currentProject].title}</h3>
                 </div>
 
                 {/* Description */}
