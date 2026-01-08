@@ -145,7 +145,7 @@ export default function Home() {
       imageColor: "bg-transparent",
       imageText: "Design",
       borderColor: "border-transparent",
-      image: "/assets/nextera-mockup.png",
+      image: "/assets/nextera-mockup-v2.png",
       icon: <svg className="w-5 h-5 text-slate-900" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
     },
     {
@@ -378,8 +378,23 @@ export default function Home() {
                 Vos concurrents sont déjà passés à l'action.
               </p>
               <div className="flex justify-start">
-                <button className="bg-slate-900 text-white px-6 py-3 rounded-full font-semibold hover:bg-slate-800 transition-all shadow-lg">
-                  Réservez un appel
+                <button className="group px-5 py-2 rounded-full bg-slate-900 text-white font-semibold text-sm hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20">
+                  <div className="flex items-start justify-center overflow-hidden h-8 gap-1">
+                    {["Lancez", "mon", "projet"].map((word, i) => (
+                      <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-8" style={{ transitionDelay: `${i * 50}ms` }}>
+                        <span className="h-8 flex items-center leading-none">{word}</span>
+                        <span className="h-8 flex items-center leading-none">{word}</span>
+                      </div>
+                    ))}
+                    <div className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-8 ml-1" style={{ transitionDelay: `${3 * 50}ms` }}>
+                      <div className="h-8 flex items-center">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
+                      </div>
+                      <div className="h-8 flex items-center">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
+                      </div>
+                    </div>
+                  </div>
                 </button>
               </div>
             </div>
@@ -584,20 +599,131 @@ export default function Home() {
 
               {/* MVP & APP LAYOUT */}
               <div className={`grid grid-cols-1 lg:grid-cols-3 gap-6 transition-all duration-500 ${activeTab === 'mvp' ? 'opacity-100 scale-100 relative md:absolute md:inset-0 z-10' : 'opacity-0 scale-95 absolute inset-0 pointer-events-none z-0'}`}>
-                {/* Big Card Left */}
-                <div className="lg:col-span-2 bg-gray-200 rounded-3xl h-[300px] lg:h-full w-full"></div>
+                {/* Big Card Left - SaaS/MVP */}
+                <div className="lg:col-span-2 group relative bg-gray-100 rounded-3xl h-[300px] lg:h-full w-full overflow-hidden border border-gray-200 flex items-center justify-center">
+                  <div className="absolute top-0 left-0 p-6 md:p-8 z-10 flex flex-wrap gap-2">
+                    <span className="inline-block px-3 py-1 bg-white/50 backdrop-blur-md border border-white/60 text-slate-900 text-xs font-bold rounded-full shadow-sm">MVP</span>
+                    <span className="inline-block px-3 py-1 bg-white/50 backdrop-blur-md border border-white/60 text-slate-900 text-xs font-bold rounded-full shadow-sm">Automation</span>
+                  </div>
+
+                  <div className="relative w-[75%] aspect-video mb-12">
+                    <Image src="/assets/bento-saas-dashboard-v5.png" alt="SaaS Dashboard" fill className="object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-2xl" />
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 p-8 w-full">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">MVP : Plateforme d'Automatisation</h3>
+                    <div className="flex items-center gap-2 text-gray-500 text-sm">
+                      <span>Connexion CRM / API</span>
+                      <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
+                      <span>Pilote Automatique</span>
+                    </div>
+                  </div>
+                </div>
 
                 {/* Right Column Stack */}
                 <div className="flex flex-col gap-6 h-auto lg:h-full">
-                  <div className="bg-gray-200 rounded-3xl h-[200px] lg:flex-1 lg:min-h-[200px] w-full"></div>
-                  <div className="bg-gray-200 rounded-3xl h-[200px] lg:flex-1 lg:min-h-[200px] w-full"></div>
+                  {/* Top Right - Mobile App 1 */}
+                  <div className="group relative bg-gray-50 rounded-3xl h-[200px] lg:flex-1 lg:min-h-[200px] w-full overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all flex items-center justify-center">
+                    <div className="absolute top-0 left-0 p-4 z-10 flex flex-wrap gap-2">
+                      <span className="inline-block px-2 py-0.5 bg-white/60 backdrop-blur-md border border-gray-200 text-slate-900 text-[10px] font-bold rounded-full shadow-sm">Mobile App</span>
+                      <span className="inline-block px-2 py-0.5 bg-white/60 backdrop-blur-md border border-gray-200 text-slate-900 text-[10px] font-bold rounded-full shadow-sm">Marketplace</span>
+                    </div>
+                    <div className="relative w-[55%] h-auto aspect-square mb-8">
+                      <Image src="/assets/bento-mobile-car-rental.png" alt="Car Rental App" fill className="object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-xl" />
+                    </div>
+
+                    <div className="absolute bottom-0 left-0 p-6 w-full text-slate-900">
+                      <h3 className="text-lg font-bold mb-1">App de Location</h3>
+                      <p className="text-gray-500 text-sm">Réservation & Paiement</p>
+                    </div>
+                  </div>
+
+                  {/* Bottom Right - Mobile App 2 or SaaS */}
+                  {/* Bottom Right - Restaurant Site */}
+                  <div className="group relative bg-gray-50 rounded-3xl h-[200px] lg:flex-1 lg:min-h-[200px] w-full overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all flex items-center justify-center">
+                    <div className="absolute top-0 left-0 p-4 z-10 flex flex-wrap gap-2">
+                      <span className="inline-block px-2 py-0.5 bg-white/60 backdrop-blur-md border border-gray-200 text-slate-900 text-[10px] font-bold rounded-full shadow-sm">Web App</span>
+                      <span className="inline-block px-2 py-0.5 bg-white/60 backdrop-blur-md border border-gray-200 text-slate-900 text-[10px] font-bold rounded-full shadow-sm">Booking</span>
+                    </div>
+                    <div className="relative w-[85%] h-auto aspect-video mb-8">
+                      <Image src="/assets/bento-restaurant-booking.jpg" alt="Restaurant Booking Site" fill className="object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-xl" />
+                    </div>
+
+                    <div className="absolute bottom-0 left-0 p-6 w-full text-slate-900">
+                      <h3 className="text-lg font-bold mb-1">Site & Réservation</h3>
+                      <p className="text-gray-500 text-sm">Pour Restaurants & Hôtels</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* LANDING PAGE & SITE LAYOUT */}
               <div className={`grid grid-cols-1 lg:grid-cols-2 gap-6 transition-all duration-500 ${activeTab === 'site' ? 'opacity-100 scale-100 relative md:absolute md:inset-0 z-10' : 'opacity-0 scale-95 absolute inset-0 pointer-events-none z-0'}`}>
-                <div className="bg-gray-200 rounded-3xl h-[350px] lg:h-full w-full"></div>
-                <div className="bg-gray-200 rounded-3xl h-[350px] lg:h-full w-full"></div>
+                {/* Architecture Site Card */}
+                <div className="group relative bg-gray-100 rounded-3xl h-[350px] lg:h-full w-full overflow-hidden border border-gray-200 flex items-center justify-center">
+                  <div className="absolute top-0 left-0 p-6 md:p-8 z-10 flex flex-wrap gap-2">
+                    <span className="inline-block px-3 py-1 bg-white/50 backdrop-blur-md border border-white/60 text-slate-900 text-xs font-bold rounded-full shadow-sm">Site Vitrine</span>
+                    <span className="inline-block px-3 py-1 bg-white/50 backdrop-blur-md border border-white/60 text-slate-900 text-xs font-bold rounded-full shadow-sm">SEO</span>
+                  </div>
+
+                  <div className="relative w-[95%] aspect-video mb-12">
+                    <Image src="/assets/bento-architecture-site.png" alt="Architecture Portfolio Site" fill className="object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-2xl" />
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 p-8 w-full">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Cabinet d'Architecture</h3>
+                    <div className="flex items-center gap-2 text-gray-500 text-sm">
+                      <span>Design Unique</span>
+                      <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
+                      <span>Portfolio Interactif</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Cosmetic Landing Card */}
+                <div className="group relative bg-gray-100 rounded-3xl h-[350px] lg:h-full w-full overflow-hidden border border-gray-200 flex items-center justify-center">
+                  <div className="absolute top-0 left-0 p-6 md:p-8 z-10 flex flex-wrap gap-2">
+                    <span className="inline-block px-3 py-1 bg-white/50 backdrop-blur-md border border-white/60 text-slate-900 text-xs font-bold rounded-full shadow-sm">E-commerce</span>
+                    <span className="inline-block px-3 py-1 bg-white/50 backdrop-blur-md border border-white/60 text-slate-900 text-xs font-bold rounded-full shadow-sm">Landing Page</span>
+                    <span className="inline-block px-3 py-1 bg-white/50 backdrop-blur-md border border-white/60 text-slate-900 text-xs font-bold rounded-full shadow-sm">Mono-produit</span>
+                  </div>
+
+                  <div className="relative w-[38%] h-[80%] shadow-2xl rounded-lg overflow-hidden mb-8 border border-gray-100">
+                    <Image src="/assets/bento-cosmetic-landing.png" alt="Cosmetic Landing Page" fill className="object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                    <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-white pointer-events-none"></div>
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 p-8 w-full">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Aura Skincare</h3>
+                    <div className="flex items-center gap-2 text-gray-500 text-sm">
+                      <span>Shopify Headless</span>
+                      <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
+                      <span>Mono-produit</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* SECTION CTA */}
+              <div className="flex justify-center mt-16 md:mt-24">
+                <button className="group px-5 py-2 rounded-full bg-slate-900 text-white font-semibold text-sm hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20">
+                  <div className="flex items-start justify-center overflow-hidden h-8 gap-1">
+                    {["Lancez", "mon", "projet"].map((word, i) => (
+                      <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-8" style={{ transitionDelay: `${i * 50}ms` }}>
+                        <span className="h-8 flex items-center leading-none">{word}</span>
+                        <span className="h-8 flex items-center leading-none">{word}</span>
+                      </div>
+                    ))}
+                    <div className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-8 ml-1" style={{ transitionDelay: `${3 * 50}ms` }}>
+                      <div className="h-8 flex items-center">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
+                      </div>
+                      <div className="h-8 flex items-center">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                </button>
               </div>
 
             </div>
@@ -785,6 +911,28 @@ export default function Home() {
                 <div className="absolute bottom-0 right-0 w-48 h-32 bg-gradient-to-tl from-gray-200/80 to-transparent rounded-tl-[4rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
+            </div>
+
+            {/* SECTION CTA */}
+            <div className="flex justify-center mt-16 md:mt-24">
+              <button className="group px-5 py-2 rounded-full bg-slate-900 text-white font-semibold text-sm hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20">
+                <div className="flex items-start justify-center overflow-hidden h-8 gap-1">
+                  {["Lancez", "mon", "projet"].map((word, i) => (
+                    <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-8" style={{ transitionDelay: `${i * 50}ms` }}>
+                      <span className="h-8 flex items-center leading-none">{word}</span>
+                      <span className="h-8 flex items-center leading-none">{word}</span>
+                    </div>
+                  ))}
+                  <div className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-8 ml-1" style={{ transitionDelay: `${3 * 50}ms` }}>
+                    <div className="h-8 flex items-center">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
+                    </div>
+                    <div className="h-8 flex items-center">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
+                    </div>
+                  </div>
+                </div>
+              </button>
             </div>
           </div>
         </section>
@@ -1012,6 +1160,43 @@ export default function Home() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 8: FINAL CTA */}
+        <section className="py-24 md:py-32 bg-slate-900 overflow-hidden relative">
+          {/* Background Glows */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+          <div className="container mx-auto px-6 text-center relative z-10">
+            <h2 className="text-4xl md:text-6xl font-bold font-heading mb-6 tracking-tight text-white">
+              Une idée en tête ?
+            </h2>
+            <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+              On transforme vos concepts en produits d'exception. <br className="hidden md:block" />Discutons de votre vision dès aujourd'hui.
+            </p>
+
+            <div className="flex justify-center">
+              <button className="group px-8 py-4 rounded-full bg-white text-slate-900 font-bold text-base hover:bg-gray-100 transition-all shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_40px_rgba(255,255,255,0.3)]">
+                <div className="flex items-start justify-center overflow-hidden h-6 gap-1.5">
+                  {["Lancez", "mon", "projet"].map((word, i) => (
+                    <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-6" style={{ transitionDelay: `${i * 50}ms` }}>
+                      <span className="h-6 flex items-center leading-none">{word}</span>
+                      <span className="h-6 flex items-center leading-none">{word}</span>
+                    </div>
+                  ))}
+                  <div className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-6 ml-1" style={{ transitionDelay: `${3 * 50}ms` }}>
+                    <div className="h-6 flex items-center">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
+                    </div>
+                    <div className="h-6 flex items-center">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
+                    </div>
+                  </div>
+                </div>
+              </button>
             </div>
           </div>
         </section>
