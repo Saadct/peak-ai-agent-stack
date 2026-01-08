@@ -324,19 +324,19 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col gap-8 justify-center items-center mt-14">
-                <button className="group px-5 py-2 rounded-full bg-slate-900 text-white font-semibold text-sm hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20">
-                  <div className="flex items-start justify-center overflow-hidden h-8 gap-1">
+                <button className="group px-5 py-2 rounded-full bg-slate-900 text-white font-semibold text-[15px] hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20">
+                  <div className="flex items-start justify-center overflow-hidden h-[34px] gap-1">
                     {["Lancez", "mon", "projet"].map((word, i) => (
-                      <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-8" style={{ transitionDelay: `${i * 50}ms` }}>
-                        <span className="h-8 flex items-center leading-none">{word}</span>
-                        <span className="h-8 flex items-center leading-none">{word}</span>
+                      <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-[34px]" style={{ transitionDelay: `${i * 50}ms` }}>
+                        <span className="h-[34px] flex items-center leading-none">{word}</span>
+                        <span className="h-[34px] flex items-center leading-none">{word}</span>
                       </div>
                     ))}
-                    <div className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-8 ml-1" style={{ transitionDelay: `${3 * 50}ms` }}>
-                      <div className="h-8 flex items-center">
+                    <div className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-[34px] ml-1" style={{ transitionDelay: `${3 * 50}ms` }}>
+                      <div className="h-[34px] flex items-center">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
                       </div>
-                      <div className="h-8 flex items-center">
+                      <div className="h-[34px] flex items-center">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
                       </div>
                     </div>
@@ -378,19 +378,19 @@ export default function Home() {
                 Vos concurrents sont déjà passés à l'action.
               </p>
               <div className="flex justify-start">
-                <button className="group px-5 py-2 rounded-full bg-slate-900 text-white font-semibold text-sm hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20">
-                  <div className="flex items-start justify-center overflow-hidden h-8 gap-1">
+                <button className="group px-5 py-2 rounded-full bg-slate-900 text-white font-semibold text-[15px] hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20">
+                  <div className="flex items-start justify-center overflow-hidden h-[34px] gap-1">
                     {["Lancez", "mon", "projet"].map((word, i) => (
-                      <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-8" style={{ transitionDelay: `${i * 50}ms` }}>
-                        <span className="h-8 flex items-center leading-none">{word}</span>
-                        <span className="h-8 flex items-center leading-none">{word}</span>
+                      <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-[34px]" style={{ transitionDelay: `${i * 50}ms` }}>
+                        <span className="h-[34px] flex items-center leading-none">{word}</span>
+                        <span className="h-[34px] flex items-center leading-none">{word}</span>
                       </div>
                     ))}
-                    <div className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-8 ml-1" style={{ transitionDelay: `${3 * 50}ms` }}>
-                      <div className="h-8 flex items-center">
+                    <div className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-[34px] ml-1" style={{ transitionDelay: `${3 * 50}ms` }}>
+                      <div className="h-[34px] flex items-center">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
                       </div>
-                      <div className="h-8 flex items-center">
+                      <div className="h-[34px] flex items-center">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
                       </div>
                     </div>
@@ -405,7 +405,7 @@ export default function Home() {
               <div className="relative flex flex-col items-center">
 
                 {/* Image Block with Animation (Overflow Hidden) */}
-                <div className="relative h-[360px] w-full overflow-hidden flex items-center justify-center">
+                <div className="relative h-[400px] w-full overflow-hidden flex items-center justify-center">
 
                   {/* Container that slides */}
                   <div
@@ -414,7 +414,7 @@ export default function Home() {
                       transform: isAnimating
                         ? (isMobile
                           ? (animationDirection === 'next' ? 'translateX(calc(-200% - 48px))' : 'translateX(0)')
-                          : (animationDirection === 'next' ? 'translateY(-304px)' : 'translateY(304px)')
+                          : (animationDirection === 'next' ? 'translateY(-344px)' : 'translateY(344px)')
                         )
                         : (isMobile ? 'translateX(calc(-100% - 24px))' : 'translate3d(0,0,0)'),
                       willChange: 'transform'
@@ -422,7 +422,7 @@ export default function Home() {
                   >
 
                     {/* Previous Block (n-1) */}
-                    <div className={`h-[280px] w-full min-w-full lg:min-w-0 rounded-3xl flex items-center justify-center overflow-hidden shadow-lg border relative
+                    <div className={`h-[320px] w-full min-w-full lg:min-w-0 rounded-3xl flex items-center justify-center overflow-hidden shadow-lg border relative
                       ${currentProject > 0 ? `${projects[currentProject - 1].imageColor} ${projects[currentProject - 1].borderColor || ''}` : 'bg-transparent border-transparent shadow-none'}`}>
                       {currentProject > 0 && projects[currentProject - 1].image ? (
                         <Image src={projects[currentProject - 1].image} alt={projects[currentProject - 1].title} fill className="object-cover" />
@@ -434,7 +434,7 @@ export default function Home() {
                     </div>
 
                     {/* Main Image Block (current) */}
-                    <div className={`h-[280px] w-full min-w-full lg:min-w-0 rounded-3xl flex items-center justify-center overflow-hidden shadow-lg border ${projects[currentProject].imageColor} ${projects[currentProject].borderColor || ''} relative`}>
+                    <div className={`h-[320px] w-full min-w-full lg:min-w-0 rounded-3xl flex items-center justify-center overflow-hidden shadow-lg border ${projects[currentProject].imageColor} ${projects[currentProject].borderColor || ''} relative`}>
                       {projects[currentProject].image ? (
                         <Image src={projects[currentProject].image} alt={projects[currentProject].title} fill className="object-cover" />
                       ) : (
@@ -443,7 +443,7 @@ export default function Home() {
                     </div>
 
                     {/* Next Block (n+1) */}
-                    <div className={`h-[280px] w-full min-w-full lg:min-w-0 rounded-3xl flex items-center justify-center overflow-hidden shadow-lg border relative
+                    <div className={`h-[320px] w-full min-w-full lg:min-w-0 rounded-3xl flex items-center justify-center overflow-hidden shadow-lg border relative
                       ${currentProject < projects.length - 1 ? `${projects[currentProject + 1].imageColor} ${projects[currentProject + 1].borderColor || ''}` : 'bg-transparent border-transparent shadow-none'}`}>
                       {currentProject < projects.length - 1 && projects[currentProject + 1].image ? (
                         <Image src={projects[currentProject + 1].image} alt={projects[currentProject + 1].title} fill className="object-cover" />
@@ -704,28 +704,28 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* SECTION CTA */}
-              <div className="flex justify-center mt-16 md:mt-24">
-                <button className="group px-5 py-2 rounded-full bg-slate-900 text-white font-semibold text-sm hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20">
-                  <div className="flex items-start justify-center overflow-hidden h-8 gap-1">
-                    {["Lancez", "mon", "projet"].map((word, i) => (
-                      <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-8" style={{ transitionDelay: `${i * 50}ms` }}>
-                        <span className="h-8 flex items-center leading-none">{word}</span>
-                        <span className="h-8 flex items-center leading-none">{word}</span>
-                      </div>
-                    ))}
-                    <div className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-8 ml-1" style={{ transitionDelay: `${3 * 50}ms` }}>
-                      <div className="h-8 flex items-center">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
-                      </div>
-                      <div className="h-8 flex items-center">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
-                      </div>
+            </div>
+
+            {/* SECTION CTA - Après les cartes */}
+            <div className="flex justify-center mt-12 md:mt-20">
+              <button className="group px-6 py-2.5 rounded-full bg-slate-900 text-white font-semibold text-sm md:text-base hover:bg-slate-800 transition-all shadow-2xl shadow-slate-900/30 hover:shadow-slate-900/40 hover:scale-[1.02] active:scale-[0.98]">
+                <div className="flex items-start justify-center overflow-hidden h-9 gap-1">
+                  {["Lancez", "mon", "projet"].map((word, i) => (
+                    <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-9" style={{ transitionDelay: `${i * 50}ms` }}>
+                      <span className="h-9 flex items-center leading-none">{word}</span>
+                      <span className="h-9 flex items-center leading-none">{word}</span>
+                    </div>
+                  ))}
+                  <div className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-9 ml-1" style={{ transitionDelay: `${3 * 50}ms` }}>
+                    <div className="h-9 flex items-center">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
+                    </div>
+                    <div className="h-9 flex items-center">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
                     </div>
                   </div>
-                </button>
-              </div>
-
+                </div>
+              </button>
             </div>
 
           </div>
@@ -915,19 +915,19 @@ export default function Home() {
 
             {/* SECTION CTA */}
             <div className="flex justify-center mt-16 md:mt-24">
-              <button className="group px-5 py-2 rounded-full bg-slate-900 text-white font-semibold text-sm hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20">
-                <div className="flex items-start justify-center overflow-hidden h-8 gap-1">
+              <button className="group px-6 py-2.5 rounded-full bg-slate-900 text-white font-semibold text-base hover:bg-slate-800 transition-all shadow-2xl shadow-slate-900/25 hover:scale-[1.02] active:scale-[0.98]">
+                <div className="flex items-start justify-center overflow-hidden h-9 gap-1">
                   {["Lancez", "mon", "projet"].map((word, i) => (
-                    <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-8" style={{ transitionDelay: `${i * 50}ms` }}>
-                      <span className="h-8 flex items-center leading-none">{word}</span>
-                      <span className="h-8 flex items-center leading-none">{word}</span>
+                    <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-9" style={{ transitionDelay: `${i * 50}ms` }}>
+                      <span className="h-9 flex items-center leading-none">{word}</span>
+                      <span className="h-9 flex items-center leading-none">{word}</span>
                     </div>
                   ))}
-                  <div className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-8 ml-1" style={{ transitionDelay: `${3 * 50}ms` }}>
-                    <div className="h-8 flex items-center">
+                  <div className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-9 ml-1" style={{ transitionDelay: `${3 * 50}ms` }}>
+                    <div className="h-9 flex items-center">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
                     </div>
-                    <div className="h-8 flex items-center">
+                    <div className="h-9 flex items-center">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
                     </div>
                   </div>
@@ -1081,6 +1081,28 @@ export default function Home() {
                 </div>
               </div>
 
+            </div>
+
+            {/* SECTION CTA */}
+            <div className="flex justify-center mt-16 md:mt-24">
+              <button className="group px-6 py-2.5 rounded-full bg-slate-900 text-white font-semibold text-base hover:bg-slate-800 transition-all shadow-2xl shadow-slate-900/25 hover:scale-[1.02] active:scale-[0.98]">
+                <div className="flex items-start justify-center overflow-hidden h-9 gap-1">
+                  {["Lancez", "mon", "projet"].map((word, i) => (
+                    <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-9" style={{ transitionDelay: `${i * 50}ms` }}>
+                      <span className="h-9 flex items-center leading-none">{word}</span>
+                      <span className="h-9 flex items-center leading-none">{word}</span>
+                    </div>
+                  ))}
+                  <div className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-9 ml-1" style={{ transitionDelay: `${3 * 50}ms` }}>
+                    <div className="h-9 flex items-center">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
+                    </div>
+                    <div className="h-9 flex items-center">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
+                    </div>
+                  </div>
+                </div>
+              </button>
             </div>
           </div>
         </section>
