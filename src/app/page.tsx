@@ -96,6 +96,21 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<'mvp' | 'site'>('mvp');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [showWhatsApp, setShowWhatsApp] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Affiche le bouton si on a scrollé plus de 400px (environ après le hero)
+      if (window.scrollY > 400) {
+        setShowWhatsApp(true);
+      } else {
+        setShowWhatsApp(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -193,14 +208,16 @@ export default function Home() {
           </div>
 
           {/* Nav - Center (Desktop) */}
-          <nav className="hidden md:flex gap-8 text-sm font-medium text-gray-500 justify-self-center">
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-500 justify-self-center">
             <a href="#problem" className="hover:text-black transition-colors">Problème</a>
+            <div className="w-px h-3 bg-gray-300" />
             <a href="#features" className="hover:text-black transition-colors">Solutions</a>
+            <div className="w-px h-3 bg-gray-300" />
             <a href="#offer" className="hover:text-black transition-colors">Offre</a>
           </nav>
 
           {/* CTA - Right (Desktop) */}
-          <button className="group hidden md:flex items-center gap-2 px-2.5 py-0.5 rounded-xl bg-white text-black text-sm font-medium border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all shadow-md justify-self-end">
+          <a href="https://calendly.com/peak-dev-agency/30min" target="_blank" className="group hidden md:flex items-center gap-2 px-2.5 py-0.5 rounded-xl bg-white text-black text-sm font-medium border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all shadow-md justify-self-end">
             <div className="flex items-start justify-center overflow-hidden h-8 gap-1">
               <div className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-8" style={{ transitionDelay: '0ms' }}>
                 <div className="h-8 flex items-center">
@@ -217,7 +234,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </button>
+          </a>
 
           {/* Hamburger Button (Mobile) */}
           <button
@@ -266,12 +283,14 @@ export default function Home() {
           </nav>
 
           <div className="mt-8 pt-6 border-t border-gray-100">
-            <button
+            <a
+              href="https://calendly.com/peak-dev-agency/30min"
+              target="_blank"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-4 bg-slate-900 text-white font-semibold rounded-2xl hover:bg-slate-800 transition-colors shadow-lg"
+              className="block w-full py-4 bg-slate-900 text-white font-semibold rounded-2xl hover:bg-slate-800 transition-colors shadow-lg text-center"
             >
               Réserver un appel
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -324,7 +343,7 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col gap-8 justify-center items-center mt-14">
-                <button className="group px-5 py-2 rounded-full bg-slate-900 text-white font-semibold text-[15px] hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20">
+                <a href="https://calendly.com/peak-dev-agency/30min" target="_blank" className="group px-5 py-2 rounded-full bg-slate-900 text-white font-semibold text-[15px] hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20">
                   <div className="flex items-start justify-center overflow-hidden h-[34px] gap-1">
                     {["Lancez", "mon", "projet"].map((word, i) => (
                       <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-[34px]" style={{ transitionDelay: `${i * 50}ms` }}>
@@ -341,7 +360,7 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                </button>
+                </a>
 
                 <div className="mt-8 flex flex-col items-center gap-10">
                   <SimpleTextRotator />
@@ -378,7 +397,7 @@ export default function Home() {
                 Vos concurrents sont déjà passés à l'action.
               </p>
               <div className="flex justify-start">
-                <button className="group px-5 py-2 rounded-full bg-slate-900 text-white font-semibold text-[15px] hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20">
+                <a href="https://calendly.com/peak-dev-agency/30min" target="_blank" className="group px-5 py-2 rounded-full bg-slate-900 text-white font-semibold text-[15px] hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20">
                   <div className="flex items-start justify-center overflow-hidden h-[34px] gap-1">
                     {["Lancez", "mon", "projet"].map((word, i) => (
                       <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-[34px]" style={{ transitionDelay: `${i * 50}ms` }}>
@@ -395,7 +414,7 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                </button>
+                </a>
               </div>
             </div>
 
@@ -405,7 +424,7 @@ export default function Home() {
               <div className="relative flex flex-col items-center">
 
                 {/* Image Block with Animation (Overflow Hidden) */}
-                <div className="relative h-[400px] w-full overflow-hidden flex items-center justify-center">
+                <div className="relative h-[420px] w-full overflow-hidden flex items-center justify-center">
 
                   {/* Container that slides */}
                   <div
@@ -414,7 +433,7 @@ export default function Home() {
                       transform: isAnimating
                         ? (isMobile
                           ? (animationDirection === 'next' ? 'translateX(calc(-200% - 48px))' : 'translateX(0)')
-                          : (animationDirection === 'next' ? 'translateY(-344px)' : 'translateY(344px)')
+                          : (animationDirection === 'next' ? 'translateY(-364px)' : 'translateY(364px)')
                         )
                         : (isMobile ? 'translateX(calc(-100% - 24px))' : 'translate3d(0,0,0)'),
                       willChange: 'transform'
@@ -422,7 +441,7 @@ export default function Home() {
                   >
 
                     {/* Previous Block (n-1) */}
-                    <div className={`h-[320px] w-full min-w-full lg:min-w-0 rounded-3xl flex items-center justify-center overflow-hidden shadow-lg border relative
+                    <div className={`h-[340px] w-full min-w-full lg:min-w-0 rounded-3xl flex items-center justify-center overflow-hidden shadow-lg border relative
                       ${currentProject > 0 ? `${projects[currentProject - 1].imageColor} ${projects[currentProject - 1].borderColor || ''}` : 'bg-transparent border-transparent shadow-none'}`}>
                       {currentProject > 0 && projects[currentProject - 1].image ? (
                         <Image src={projects[currentProject - 1].image} alt={projects[currentProject - 1].title} fill className="object-cover" />
@@ -434,7 +453,7 @@ export default function Home() {
                     </div>
 
                     {/* Main Image Block (current) */}
-                    <div className={`h-[320px] w-full min-w-full lg:min-w-0 rounded-3xl flex items-center justify-center overflow-hidden shadow-lg border ${projects[currentProject].imageColor} ${projects[currentProject].borderColor || ''} relative`}>
+                    <div className={`h-[340px] w-full min-w-full lg:min-w-0 rounded-3xl flex items-center justify-center overflow-hidden shadow-lg border ${projects[currentProject].imageColor} ${projects[currentProject].borderColor || ''} relative`}>
                       {projects[currentProject].image ? (
                         <Image src={projects[currentProject].image} alt={projects[currentProject].title} fill className="object-cover" />
                       ) : (
@@ -443,7 +462,7 @@ export default function Home() {
                     </div>
 
                     {/* Next Block (n+1) */}
-                    <div className={`h-[320px] w-full min-w-full lg:min-w-0 rounded-3xl flex items-center justify-center overflow-hidden shadow-lg border relative
+                    <div className={`h-[340px] w-full min-w-full lg:min-w-0 rounded-3xl flex items-center justify-center overflow-hidden shadow-lg border relative
                       ${currentProject < projects.length - 1 ? `${projects[currentProject + 1].imageColor} ${projects[currentProject + 1].borderColor || ''}` : 'bg-transparent border-transparent shadow-none'}`}>
                       {currentProject < projects.length - 1 && projects[currentProject + 1].image ? (
                         <Image src={projects[currentProject + 1].image} alt={projects[currentProject + 1].title} fill className="object-cover" />
@@ -519,7 +538,7 @@ export default function Home() {
                   <div className={`w-12 h-12 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center`}>
                     {projects[currentProject].icon}
                   </div>
-                  <h3 className="text-3xl font-bold text-slate-900 font-heading">{projects[currentProject].title}</h3>
+                  <h3 className="text-3xl font-medium text-slate-900 font-heading">{projects[currentProject].title}</h3>
                 </div>
 
                 {/* Description */}
@@ -611,7 +630,7 @@ export default function Home() {
                   </div>
 
                   <div className="absolute bottom-0 left-0 p-8 w-full">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">MVP : Plateforme d'Automatisation</h3>
+                    <h3 className="text-2xl font-medium text-slate-900 mb-2">MVP : Plateforme d'Automatisation</h3>
                     <div className="flex items-center gap-2 text-gray-500 text-sm">
                       <span>Connexion CRM / API</span>
                       <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
@@ -633,7 +652,7 @@ export default function Home() {
                     </div>
 
                     <div className="absolute bottom-0 left-0 p-6 w-full text-slate-900">
-                      <h3 className="text-lg font-bold mb-1">App de Location</h3>
+                      <h3 className="text-lg font-medium mb-1">App de Location</h3>
                       <p className="text-gray-500 text-sm">Réservation & Paiement</p>
                     </div>
                   </div>
@@ -650,7 +669,7 @@ export default function Home() {
                     </div>
 
                     <div className="absolute bottom-0 left-0 p-6 w-full text-slate-900">
-                      <h3 className="text-lg font-bold mb-1">Site & Réservation</h3>
+                      <h3 className="text-lg font-medium mb-1">Site & Réservation</h3>
                       <p className="text-gray-500 text-sm">Pour Restaurants & Hôtels</p>
                     </div>
                   </div>
@@ -671,7 +690,7 @@ export default function Home() {
                   </div>
 
                   <div className="absolute bottom-0 left-0 p-8 w-full">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Cabinet d'Architecture</h3>
+                    <h3 className="text-2xl font-medium text-slate-900 mb-2">Cabinet d'Architecture</h3>
                     <div className="flex items-center gap-2 text-gray-500 text-sm">
                       <span>Design Unique</span>
                       <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
@@ -694,7 +713,7 @@ export default function Home() {
                   </div>
 
                   <div className="absolute bottom-0 left-0 p-8 w-full">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Aura Skincare</h3>
+                    <h3 className="text-2xl font-medium text-slate-900 mb-2">Aura Skincare</h3>
                     <div className="flex items-center gap-2 text-gray-500 text-sm">
                       <span>Shopify Headless</span>
                       <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
@@ -708,7 +727,7 @@ export default function Home() {
 
             {/* SECTION CTA - Après les cartes */}
             <div className="flex justify-center mt-12 md:mt-20">
-              <button className="group px-6 py-2.5 rounded-full bg-slate-900 text-white font-semibold text-sm md:text-base hover:bg-slate-800 transition-all shadow-2xl shadow-slate-900/30 hover:shadow-slate-900/40 hover:scale-[1.02] active:scale-[0.98]">
+              <a href="https://calendly.com/peak-dev-agency/30min" target="_blank" className="group px-6 py-2.5 rounded-full bg-slate-900 text-white font-semibold text-sm md:text-base hover:bg-slate-800 transition-all shadow-2xl shadow-slate-900/30 hover:shadow-slate-900/40 hover:scale-[1.02] active:scale-[0.98]">
                 <div className="flex items-start justify-center overflow-hidden h-9 gap-1">
                   {["Lancez", "mon", "projet"].map((word, i) => (
                     <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-9" style={{ transitionDelay: `${i * 50}ms` }}>
@@ -725,7 +744,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </button>
+              </a>
             </div>
 
           </div>
@@ -755,7 +774,7 @@ export default function Home() {
                     <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm border border-white/10 group-hover:scale-110 transition-transform duration-500">
                       <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
                     </div>
-                    <h3 className="text-3xl font-bold font-heading mb-4 tracking-tight">RGPD & Sécurité.</h3>
+                    <h3 className="text-3xl font-medium font-heading mb-4 tracking-tight">RGPD & Sécurité.</h3>
                     <p className="text-gray-400 font-medium leading-relaxed max-w-sm">
                       Conformité totale dès le jour 1. Vos données sont blindées, vos mentions légales sont prêtes. Dormez tranquille.
                     </p>
@@ -772,7 +791,7 @@ export default function Home() {
                     <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors duration-500">
                       <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>
                     </div>
-                    <h3 className="text-3xl font-bold font-heading text-slate-900 mb-4 tracking-tight">Direction Artistique.</h3>
+                    <h3 className="text-3xl font-medium font-heading text-slate-900 mb-4 tracking-tight">Direction Artistique.</h3>
                     <p className="text-gray-500 font-medium leading-relaxed max-w-sm">
                       Pas de templates génériques. Une identité visuelle unique, pensée pour convertir et marquer les esprits durablement.
                     </p>
@@ -789,7 +808,7 @@ export default function Home() {
                     <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse shadow-[0_0_12px_rgba(34,197,94,0.6)]" />
                     <span className="text-xs font-bold uppercase tracking-wider text-gray-400">Toujours disponible</span>
                   </div>
-                  <h3 className="text-2xl font-bold font-heading text-slate-900 mb-4 tracking-tight">Support Prioritaire.</h3>
+                  <h3 className="text-2xl font-medium font-heading text-slate-900 mb-4 tracking-tight">Support Prioritaire.</h3>
                   <p className="text-gray-500 font-medium leading-relaxed">
                     Nous ne disparaissons pas après la livraison. Une question ? Une modif ? On gère en express.
                   </p>
@@ -805,7 +824,7 @@ export default function Home() {
                   <div className="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-slate-900 group-hover:text-white transition-all duration-500">
                     <svg className="w-6 h-6 text-slate-900 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
                   </div>
-                  <h3 className="text-2xl font-bold font-heading text-slate-900 mb-4 tracking-tight">Scalabilité Native.</h3>
+                  <h3 className="text-2xl font-medium font-heading text-slate-900 mb-4 tracking-tight">Scalabilité Native.</h3>
                   <p className="text-gray-500 font-medium leading-relaxed">
                     Construit sur Next.js pour encaisser la charge. Votre MVP d'aujourd'hui est prêt pour vos millions d'utilisateurs de demain.
                   </p>
@@ -915,7 +934,7 @@ export default function Home() {
 
             {/* SECTION CTA */}
             <div className="flex justify-center mt-16 md:mt-24">
-              <button className="group px-6 py-2.5 rounded-full bg-slate-900 text-white font-semibold text-base hover:bg-slate-800 transition-all shadow-2xl shadow-slate-900/25 hover:scale-[1.02] active:scale-[0.98]">
+              <a href="https://calendly.com/peak-dev-agency/30min" target="_blank" className="group px-6 py-2.5 rounded-full bg-slate-900 text-white font-semibold text-base hover:bg-slate-800 transition-all shadow-2xl shadow-slate-900/25 hover:scale-[1.02] active:scale-[0.98]">
                 <div className="flex items-start justify-center overflow-hidden h-9 gap-1">
                   {["Lancez", "mon", "projet"].map((word, i) => (
                     <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-9" style={{ transitionDelay: `${i * 50}ms` }}>
@@ -932,7 +951,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </button>
+              </a>
             </div>
           </div>
         </section>
@@ -969,26 +988,26 @@ export default function Home() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl font-bold font-heading text-slate-900 mb-2 tracking-tight">Accompagnement</h3>
-                  <p className="text-gray-400 font-medium text-sm mb-8">On pilote la trajectoire avec vous</p>
+                  <h3 className="text-2xl font-bold font-heading text-slate-900 mb-2 tracking-tight">Vision & Stratégie</h3>
+                  <p className="text-gray-400 font-medium text-sm mb-8">Transformez votre concept en produit viable.</p>
 
                   {/* Features List */}
                   <ul className="space-y-4">
                     <li className="flex items-start gap-3">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
-                      <span className="text-gray-600 text-sm leading-relaxed">Cadrage complet : roadmap, backlog, objectifs</span>
+                      <span className="text-gray-600 text-sm leading-relaxed">Analyse de faisabilité et business model</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
-                      <span className="text-gray-600 text-sm leading-relaxed">Coaching produit & tech en continu</span>
+                      <span className="text-gray-600 text-sm leading-relaxed">Définition du périmètre MVP (Scope)</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
-                      <span className="text-gray-600 text-sm leading-relaxed">Revues hebdo et reporting d'avancement</span>
+                      <span className="text-gray-600 text-sm leading-relaxed">Roadmap technique détaillée</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
-                      <span className="text-gray-600 text-sm leading-relaxed">Alignement business / produit à chaque sprint</span>
+                      <span className="text-gray-600 text-sm leading-relaxed">Gestion de projet agile et transparente</span>
                     </li>
                   </ul>
                 </div>
@@ -1008,30 +1027,30 @@ export default function Home() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl font-bold font-heading text-white mb-2 tracking-tight">Développement</h3>
-                  <p className="text-gray-400 font-medium text-sm mb-8">Une équipe pour livrer vite et bien</p>
+                  <h3 className="text-2xl font-bold font-heading text-white mb-2 tracking-tight">Réalisation Technique</h3>
+                  <p className="text-gray-400 font-medium text-sm mb-8">L'excellence opérationnelle au service du produit.</p>
 
                   {/* Features List */}
                   <ul className="space-y-4">
                     <li className="flex items-start gap-3">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-2 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm leading-relaxed">Design system et UX sur-mesure</span>
+                      <span className="text-gray-300 text-sm leading-relaxed">UI/UX Design centré utilisateur</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-2 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm leading-relaxed">Front-end & back-end production ready</span>
+                      <span className="text-gray-300 text-sm leading-relaxed">Développement Full-stack (Web & Mobile)</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-2 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm leading-relaxed">Fonctionnalités spécifiques & API</span>
+                      <span className="text-gray-300 text-sm leading-relaxed">Architecture scalable dès le départ</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-2 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm leading-relaxed">Back-office clé en main</span>
+                      <span className="text-gray-300 text-sm leading-relaxed">Intégrations outils tiers & APIs</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-2 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm leading-relaxed">Landing page si besoin</span>
+                      <span className="text-gray-300 text-sm leading-relaxed">Livrables testés et validés</span>
                     </li>
                   </ul>
                 </div>
@@ -1051,31 +1070,31 @@ export default function Home() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl font-bold font-heading text-slate-900 mb-2 tracking-tight">Déploiement & Scalabilité</h3>
-                  <p className="text-gray-400 font-medium text-sm mb-8">Votre solution, en ligne et sécurisée.</p>
+                  <h3 className="text-2xl font-bold font-heading text-slate-900 mb-2 tracking-tight">Lancement & Suivi</h3>
+                  <p className="text-gray-400 font-medium text-sm mb-8">Pilotez votre croissance sans soucis techniques.</p>
 
                   {/* Features List - With Subtext */}
                   <div className="space-y-6">
                     <div>
                       <div className="flex items-center gap-3 mb-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
-                        <span className="text-slate-900 font-semibold text-sm">Déploiement Clé en Main</span>
+                        <span className="text-slate-900 font-semibold text-sm">Infrastructure Cloud</span>
                       </div>
-                      <p className="text-gray-500 text-xs leading-relaxed pl-[18px]">Mise en production immédiate et optimisation de votre infrastructure.</p>
+                      <p className="text-gray-500 text-xs leading-relaxed pl-[18px]">AWS, Vercel, ou OVH : on gère la mise en ligne et l'hébergement.</p>
                     </div>
                     <div>
                       <div className="flex items-center gap-3 mb-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
-                        <span className="text-slate-900 font-semibold text-sm">Suivi Incidents & Bugs</span>
+                        <span className="text-slate-900 font-semibold text-sm">Sécurité & Conformité</span>
                       </div>
-                      <p className="text-gray-500 text-xs leading-relaxed pl-[18px]">Monitoring actif pour une détection et une correction ultra-rapide.</p>
+                      <p className="text-gray-500 text-xs leading-relaxed pl-[18px]">Protection des données, HTTPS, et respect natif des normes RGPD.</p>
                     </div>
                     <div>
                       <div className="flex items-center gap-3 mb-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
-                        <span className="text-slate-900 font-semibold text-sm">Encadrement & Évolutions</span>
+                        <span className="text-slate-900 font-semibold text-sm">Évolution & Maintenance</span>
                       </div>
-                      <p className="text-gray-500 text-xs leading-relaxed pl-[18px]">Accompagnement technique pour faire grandir votre projet sans limites.</p>
+                      <p className="text-gray-500 text-xs leading-relaxed pl-[18px]">Nous restons disponibles pour les mises à jour et les nouvelles features.</p>
                     </div>
                   </div>
                 </div>
@@ -1085,7 +1104,7 @@ export default function Home() {
 
             {/* SECTION CTA */}
             <div className="flex justify-center mt-16 md:mt-24">
-              <button className="group px-6 py-2.5 rounded-full bg-slate-900 text-white font-semibold text-base hover:bg-slate-800 transition-all shadow-2xl shadow-slate-900/25 hover:scale-[1.02] active:scale-[0.98]">
+              <a href="https://calendly.com/peak-dev-agency/30min" target="_blank" className="group px-6 py-2.5 rounded-full bg-slate-900 text-white font-semibold text-base hover:bg-slate-800 transition-all shadow-2xl shadow-slate-900/25 hover:scale-[1.02] active:scale-[0.98]">
                 <div className="flex items-start justify-center overflow-hidden h-9 gap-1">
                   {["Lancez", "mon", "projet"].map((word, i) => (
                     <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-9" style={{ transitionDelay: `${i * 50}ms` }}>
@@ -1102,7 +1121,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </button>
+              </a>
             </div>
           </div>
         </section>
@@ -1126,28 +1145,32 @@ export default function Home() {
             <div className="max-w-3xl mx-auto">
               {[
                 {
-                  question: "Quel est le délai moyen pour lancer un MVP ?",
-                  answer: "Généralement entre <strong>4 et 8 semaines</strong> selon la complexité du projet. On commence par un sprint de cadrage d'une semaine pour définir précisément le périmètre, puis on livre par itérations. Vous avez une première version testable très rapidement."
+                  question: "Combien de temps avant d'avoir mon produit en main ?",
+                  answer: "Vitesse et qualité ne sont pas incompatibles. Pour un MVP, comptez généralement <strong>4 à 8 semaines</strong>. On découpe le projet en étapes claires pour vous livrer une première version fonctionnelle le plus vite possible."
                 },
                 {
-                  question: "Comment sont calculés vos tarifs ?",
-                  answer: "Nos tarifs sont basés sur la <strong>complexité du projet</strong> et le temps de développement estimé. On vous fournit un devis détaillé après le premier appel de cadrage. Pas de surprise : le prix annoncé est le prix final, sauf si vous demandez des fonctionnalités supplémentaires en cours de route."
+                  question: "Comment garantissez-vous la fiabilité du code ?",
+                  answer: "On ne bricole pas. Architecture propre, <strong>Clean Code</strong>, tests automatisés et revues de code systématiques font partie de notre ADN. On suit les standards les plus stricts de l'industrie pour vous livrer une solution stable, sécurisée et facile à faire évoluer par n'importe quel développeur."
                 },
                 {
-                  question: "Peut-on demander des modifications en cours de projet ?",
-                  answer: "Absolument. On travaille en <strong>méthode agile</strong> avec des sprints de 2 semaines. À chaque fin de sprint, vous validez les livrables et pouvez ajuster les priorités. Les modifications mineures sont incluses, les changements majeurs font l'objet d'un avenant."
+                  question: "Comment définissez-vous le budget ?",
+                  answer: "Tout dépend de l'envergure de votre ambition. Suite à notre premier échange (gratuit), on vous fournit une <strong>estimation précise et détaillée</strong>. Pas de coûts cachés, on s'engage sur un forfait ou un TJM clair dès le départ."
                 },
                 {
-                  question: "Quelles technologies utilisez-vous ?",
-                  answer: "On privilégie des stacks modernes et éprouvées : <strong>Next.js / React</strong> pour le front, <strong>Node.js ou Python</strong> pour le back, et des bases de données comme PostgreSQL ou MongoDB. Tout est hébergé sur des infrastructures cloud sécurisées (Vercel, AWS, ou OVH selon vos préférences)."
+                  question: "Et si je veux changer d'avis en cours de route ?",
+                  answer: "C'est tout l'intérêt de notre approche Agile. On fonctionne par <strong>sprints de 2 semaines</strong>. À chaque étape, vous validez le travail, et on peut ajuster la direction si vos besoins évoluent. Vous gardez le contrôle total sur le produit final."
                 },
                 {
-                  question: "Qui héberge mon application une fois livrée ?",
-                  answer: "On s'occupe du <strong>déploiement complet</strong> sur l'infrastructure de votre choix. Vous restez propriétaire de tout : code source, données, nom de domaine. On peut aussi gérer l'hébergement pour vous via un forfait de maintenance mensuel."
+                  question: "Sur quelles technologies allez-vous construire mon projet ?",
+                  answer: "On mise sur la robustesse et la performance : <strong>Next.js, React ou Angular</strong> pour des interfaces fluides, <strong>Node.js, Nest.js, Python ou .NET</strong> pour un backend solide. Si votre projet s'y prête mieux, on maîtrise aussi les meilleurs CMS (WordPress, Shopify, Webflow)."
                 },
                 {
-                  question: "Proposez-vous un support après le lancement ?",
-                  answer: "Oui, on propose des <strong>forfaits de maintenance</strong> incluant : correction de bugs, mises à jour de sécurité, monitoring, et un volume d'heures pour les évolutions. Vous n'êtes jamais seul après le lancement."
+                  question: "L'application m'appartient-elle vraiment ?",
+                  answer: "<strong>À 100%.</strong> À la livraison, on vous transfère la propriété intellectuelle complète du code et des données. Pour l'hébergement, on configure tout sur votre propre cloud (AWS, Vercel, OVH...) ou on s'en occupe pour vous, c'est vous qui décidez."
+                },
+                {
+                  question: "Une fois le site en ligne, suis-je livré à moi-même ?",
+                  answer: "Jamais. On propose des <strong>contrats de maintenance</strong> sur-mesure pour garantir la sécurité, la rapidité et les mises à jour de votre plateforme. On reste votre partenaire technique sur la durée pour faire grandir le projet."
                 }
               ].map((faq, index) => (
                 <div
@@ -1201,7 +1224,7 @@ export default function Home() {
             </p>
 
             <div className="flex justify-center">
-              <button className="group px-8 py-4 rounded-full bg-white text-slate-900 font-bold text-base hover:bg-gray-100 transition-all shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_40px_rgba(255,255,255,0.3)]">
+              <a href="https://calendly.com/peak-dev-agency/30min" target="_blank" className="group px-8 py-4 rounded-full bg-white text-slate-900 font-bold text-base hover:bg-gray-100 transition-all shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_40px_rgba(255,255,255,0.3)]">
                 <div className="flex items-start justify-center overflow-hidden h-6 gap-1.5">
                   {["Lancez", "mon", "projet"].map((word, i) => (
                     <div key={i} className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-6" style={{ transitionDelay: `${i * 50}ms` }}>
@@ -1218,7 +1241,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </button>
+              </a>
             </div>
           </div>
         </section>
@@ -1253,6 +1276,19 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* WhatsApp Sticky Button */}
+      <a
+        href="https://wa.me/33783379419?text=Bonjour%2C%20je%20souhaite%20vous%20contacter%20au%20sujet%20d%27une%20landing%20page%2C%20d%27un%20MVP%2C%20d%27un%20SaaS%20ou%20d%27un%20site%20vitrine."
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_4px_12px_rgba(37,211,102,0.4)] hover:shadow-[0_6px_16px_rgba(37,211,102,0.5)] hover:scale-110 active:scale-95 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${showWhatsApp ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'}`}
+        aria-label="Contactez-nous sur WhatsApp"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+      </a>
     </div>
   );
 }
